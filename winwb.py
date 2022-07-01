@@ -1,6 +1,9 @@
 from winreg import *
 from win32com.shell import shell
 
+def appver():
+    return "0.1"
+
 def addRegistry(sdp_path):
     key = CreateKey(HKEY_LOCAL_MACHINE, sdp_path)
     try:
@@ -71,6 +74,8 @@ def writeBlock():
                     key = None
                 except FileNotFoundError:
                     print(reins)
+            elif answer == "5":
+                print("-> Version: " + appver())
             elif answer == "0" or answer == "exit" or answer == "quit":
                 print("-> Bye!")
                 go = False
